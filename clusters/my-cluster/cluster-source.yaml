@@ -8,5 +8,5 @@ spec:
   interval: 30s
   ref:
     branch: main
-  url: https://github.com/abashir236/fleet-infra/clusters/my-cluster/cluster
+  url: https://github.com/abashir236/fleet-infra
 
