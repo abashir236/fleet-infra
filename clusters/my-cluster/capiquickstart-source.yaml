@@ -2,11 +2,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: cluster
+  name: capi-quickstart
   namespace: flux-system
 spec:
   interval: 30s
   ref:
     branch: main
-  url: https://github.com/abashir236/fleet-infra/clusters/my-cluster/cluster
+  url: https://github.com/abashir236/fleet-infra
 
