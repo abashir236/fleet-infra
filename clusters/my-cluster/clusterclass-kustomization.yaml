@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  path: "./clusters/my-cluster/cluster-class"
+  path: "./clusters/cluster-class"
   prune: true
   sourceRef:
     kind: GitRepository
