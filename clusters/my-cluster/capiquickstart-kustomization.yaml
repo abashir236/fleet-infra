@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  path: ./cluster/capi-quickstart
+  path: ./clusters/capi-quickstart
   prune: true
   sourceRef:
     kind: GitRepository
