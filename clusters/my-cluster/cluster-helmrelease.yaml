@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cluster-class
   interval: 30s
-  path: "./clusters/cluster"
+  path: ./clusters/cluster
   prune: true
   sourceRef:
     kind: GitRepository
