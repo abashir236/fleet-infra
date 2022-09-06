@@ -5,6 +5,10 @@ metadata:
   name: cluster-class
   namespace: flux-system
 spec:
+  chart:
+    spec:
+      chart: templates
+      sourceRef:
   interval: 30s
   path: "./clusters/helm-clusterclass"
   prune: true
