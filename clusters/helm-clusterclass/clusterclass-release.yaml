@@ -1,0 +1,16 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cluster-class
+  namespace: flux-system
+spec:
+  interval: 30s
+  path: "./clusters/helm-clusterclass"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster-class
+  targetNamespace: default
+  
+
