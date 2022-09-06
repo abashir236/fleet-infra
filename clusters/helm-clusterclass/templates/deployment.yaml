@@ -51,7 +51,6 @@ spec:
       Sets the cgroupDriver to cgroupfs if a Kubernetes version < v1.24 is referenced.
       This is required because kind and the node images do not support the default
       systemd cgroupDriver for kubernetes < v1.24.
-    enabledIf: '{{ semverCompare "<= v1.23" .builtin.controlPlane.version }}'
     name: cgroupDriver-controlPlane
   - definitions:
     - jsonPatches:
