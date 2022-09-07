@@ -11,6 +11,6 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: helm-cluster
+        name: cluster
   interval: 30s
 
