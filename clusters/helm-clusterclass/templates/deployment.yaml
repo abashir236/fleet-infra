@@ -2,7 +2,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: ClusterClass
 metadata:
   name: quick-start
-  namespace: default
+  namespace: test
 spec:
   controlPlane:
     machineInfrastructure:
