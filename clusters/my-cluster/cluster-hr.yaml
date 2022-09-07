@@ -5,6 +5,8 @@ metadata:
   name: helm-cluster
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: helm-clusterclass
   chart:
     spec:
       chart: ./clusters/helm-cluster
@@ -12,7 +14,5 @@ spec:
       sourceRef:
         kind: GitRepository
         name: cluster
-  dependsOn:
-    - name: clusterclass
   interval: 30s
 
