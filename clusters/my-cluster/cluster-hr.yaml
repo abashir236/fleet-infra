@@ -13,6 +13,6 @@ spec:
         kind: GitRepository
         name: cluster
   dependsOn:
-    - name: helm-clusterclass
+    - name: clusterclass
   interval: 30s
 
