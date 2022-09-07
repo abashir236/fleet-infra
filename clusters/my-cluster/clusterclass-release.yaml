@@ -7,10 +7,9 @@ metadata:
 spec:
   chart:
     spec:
-      chart: templates
+      chart: ./clusters/helm-clusterclass
       sourceRef:
   interval: 30s
-  path: "./clusters/helm-clusterclass"
   prune: true
   sourceRef:
     kind: GitRepository

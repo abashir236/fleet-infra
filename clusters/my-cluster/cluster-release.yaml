@@ -5,10 +5,13 @@ metadata:
   name: cluster
   namespace: default
 spec:
+  chart:
+    spec:
+      chart: ./clusters/helm-cluster
+      sourceRef:
   dependsOn:
     - name: helm-clusterclass
   interval: 30s
-  path: "./clusters/helm-cluster"
   prune: true
   sourceRef:
     kind: GitRepository
