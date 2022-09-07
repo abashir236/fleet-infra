@@ -2,7 +2,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: ClusterClass
 metadata:
   name: quick-start
-  namespace: default
+  namespace: test
 spec:
   controlPlane:
     machineInfrastructure:
@@ -51,7 +51,6 @@ spec:
       Sets the cgroupDriver to cgroupfs if a Kubernetes version < v1.24 is referenced.
       This is required because kind and the node images do not support the default
       systemd cgroupDriver for kubernetes < v1.24.
-    enabledIf: '{{ semverCompare "<= v1.23" .builtin.controlPlane.version }}'
     name: cgroupDriver-controlPlane
   - definitions:
     - jsonPatches:
@@ -69,7 +68,6 @@ spec:
       Sets the cgroupDriver to cgroupfs if a Kubernetes version < v1.24 is referenced.
       This is required because kind and the node images do not support the default
       systemd cgroupDriver for kubernetes < v1.24.
-    enabledIf: '{{ semverCompare "<= v1.23" .builtin.machineDeployment.version }}'
     name: cgroupDriver-machineDeployment
   - definitions:
     - jsonPatches:
@@ -106,7 +104,6 @@ spec:
         path: /spec/template/spec/customImage
         valueFrom:
           template: |
-            kindest/node:{{ .builtin.machineDeployment.version | replace "+" "_" }}
       selector:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
         kind: DockerMachineTemplate
@@ -119,7 +116,6 @@ spec:
         path: /spec/template/spec/customImage
         valueFrom:
           template: |
-            kindest/node:{{ .builtin.controlPlane.version | replace "+" "_" }}
       selector:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
         kind: DockerMachineTemplate
@@ -155,11 +151,8 @@ spec:
                     apiVersion: pod-security.admission.config.k8s.io/v1beta1
                     kind: PodSecurityConfiguration
                     defaults:
-                      enforce: "{{ .podSecurityStandard.enforce }}"
                       enforce-version: "latest"
-                      audit: "{{ .podSecurityStandard.audit }}"
                       audit-version: "latest"
-                      warn: "{{ .podSecurityStandard.warn }}"
                       warn-version: "latest"
                     exemptions:
                       usernames: []
@@ -172,7 +165,6 @@ spec:
         matchResources:
           controlPlane: true
     description: Adds an admission configuration for PodSecurity to the kube-apiserver.
-    enabledIf: '{{ .podSecurityStandard.enabled }}'
     name: podSecurityStandard
   variables:
   - name: imageRepository
