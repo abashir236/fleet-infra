@@ -8,12 +8,9 @@ spec:
   chart:
     spec:
       chart: ./clusters/helm-clusterclass
+      reconcileStrategy: ChartVersion
       sourceRef:
+        kind: GitRepository
+        name: helm-clusterclass
   interval: 30s
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: helm-clusterclass
-  targetNamespace: default
-  
 

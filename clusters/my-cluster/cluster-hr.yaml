@@ -2,19 +2,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: cluster
+  name: helm-cluster
   namespace: default
 spec:
   chart:
     spec:
       chart: ./clusters/helm-cluster
+      reconcileStrategy: ChartVersion
       sourceRef:
-  dependsOn:
-    - name: helm-clusterclass
+        kind: GitRepository
+        name: helm-cluster
   interval: 30s
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: helm-cluster
-  targetNamespace: default
 
