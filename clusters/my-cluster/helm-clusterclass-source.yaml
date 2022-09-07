@@ -3,9 +3,9 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: helm-clusterclass
-  namespace: default
+  namespace: flux-system
 spec:
-  interval: 30s
+  interval: 1m0s
   ref:
     branch: main
   url: https://github.com/abashir236/fleet-infra
